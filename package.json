@@ -1,0 +1,66 @@
+{
+  "name": "egg-oauth2-server",
+  "version": "1.0.0",
+  "description": "koa-oauth-server(oauth2-server) plugin for egg",
+  "eggPlugin": {
+    "name": "oauth2-server"
+  },
+  "keywords": [
+    "egg",
+    "eggPlugin",
+    "egg-plugin",
+    "oauth",
+    "oauth-server",
+    "oauth2",
+    "oauth2-server"
+  ],
+  "dependencies": {
+    "koa-oauth-server": "^1.0.1"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "egg": "^1.0.0",
+    "egg-bin": "^3.1.0",
+    "egg-ci": "^1.5.0",
+    "egg-mock": "^3.2.0",
+    "eslint": "^3.18.0",
+    "eslint-config-egg": "^3.2.0",
+    "supertest": "^3.0.0",
+    "webstorm-disable-index": "^1.1.2",
+    "chai": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "files": [
+    "index.js",
+    "app.js",
+    "agent.js",
+    "config",
+    "app",
+    "lib"
+  ],
+  "ci": {
+    "version": "6, 7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggjs/egg-oauth2-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eggjs/egg/issues"
+  },
+  "homepage": "https://github.com/eggjs/egg-oauth2-server#readme",
+  "author": "Azard",
+  "license": "MIT"
+}
