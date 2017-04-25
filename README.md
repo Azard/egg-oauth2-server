@@ -9,11 +9,11 @@
 
 [npm-image]: https://img.shields.io/npm/v/egg-oauth2-server.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/egg-oauth2-server
-[travis-image]: https://img.shields.io/travis/eggjs/egg-oauth2-server.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/Azard/egg-oauth2-server.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Azard/egg-oauth2-server
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-oauth2-server.svg?style=flat-square
+[codecov-image]: https://img.shields.io/codecov/c/github/Azard/egg-oauth2-server.svg?style=flat-square
 [codecov-url]: https://codecov.io/github/Azard/egg-oauth2-server?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-oauth2-server.svg?style=flat-square
+[david-image]: https://img.shields.io/david/Azard/egg-oauth2-server.svg?style=flat-square
 [david-url]: https://david-dm.org/Azard/egg-oauth2-server
 [snyk-image]: https://snyk.io/test/npm/egg-oauth2-server/badge.svg?style=flat-square
 [snyk-url]: https://snyk.io/test/npm/egg-oauth2-server
@@ -98,7 +98,7 @@ Only `getAccessToken`
 
 ## Questions & Suggestions
 
-Please open an issue [here](https://github.com/eggjs/egg/issues).
+Please open an issue [here](https://github.com/Azard/egg-oauth2-server/issues).
 
 ## License
 

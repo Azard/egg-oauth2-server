@@ -55,12 +55,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-oauth2-server.git"
+    "url": "git+https://github.com/Azard/egg-oauth2-server.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/Azard/egg-oauth2-server/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-oauth2-server#readme",
+  "homepage": "https://github.com/Azard/egg-oauth2-server#readme",
   "author": "Azard",
   "license": "MIT"
 }
