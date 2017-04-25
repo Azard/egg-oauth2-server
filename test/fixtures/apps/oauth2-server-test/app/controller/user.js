@@ -2,11 +2,10 @@
 
 module.exports = app => {
   class UserController extends app.Controller {
-    async index() {
+    * index() {
       this.ctx.body = 'index';
     }
-
-    async check() {
+    * check() {
       this.ctx.body = 'ok';
     }
   }

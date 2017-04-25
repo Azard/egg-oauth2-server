@@ -1,6 +1,6 @@
 {
   "name": "egg-oauth2-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "koa-oauth-server(oauth2-server) plugin for egg",
   "eggPlugin": {
     "name": "oauth2-server"
