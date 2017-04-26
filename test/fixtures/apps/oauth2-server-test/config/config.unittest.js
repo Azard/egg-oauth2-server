@@ -1,17 +1,13 @@
 'use strict';
 
-const oauth_model = require('../app/extend/oauth');
-
-module.exports = app => {
+module.exports = config => {
   const exports = {};
 
   exports.keys = '123456';
-  exports['oauth2-server'] = {
-    debug: process.env.NODE_ENV !== 'production',
+  exports.oauth2Server = {
+    debug: config.env === 'local',
     grants: [ 'password' ],
-    model: oauth_model(app),
   };
-
   exports.security = {
     csrf: {
       enable: false,

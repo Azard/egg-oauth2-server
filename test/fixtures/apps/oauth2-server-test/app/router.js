@@ -2,7 +2,7 @@
 
 module.exports = app => {
   app.get('/', function* () {
-    this.body = 'hi, ' + app.plugins['oauth2-server'].name;
+    this.body = 'hi';
   });
 
   app.all('/user/grant', app.oauth.grant());

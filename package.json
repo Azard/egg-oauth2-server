@@ -1,7 +1,7 @@
 {
   "name": "egg-oauth2-server",
-  "version": "1.0.1",
-  "description": "koa-oauth-server(oauth2-server) plugin for egg",
+  "version": "1.0.2",
+  "description": "koa-oauth-server(node-oauth2-server) plugin for egg",
   "eggPlugin": {
     "name": "oauth2-server"
   },
@@ -33,8 +33,6 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "egg-bin dev",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",

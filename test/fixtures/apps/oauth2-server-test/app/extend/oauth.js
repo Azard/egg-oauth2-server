@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = app => {
+module.exports = () => {
   const model = {};
   const user = {
     username: 'egg-oauth2-server',
