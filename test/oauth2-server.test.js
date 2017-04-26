@@ -19,7 +19,7 @@ describe('test/oauth2-server.test.js', () => {
   it('should GET /', () => {
     return request(app.callback())
       .get('/')
-      .expect('hi, oauth2-server')
+      .expect('hi')
       .expect(200);
   });
 

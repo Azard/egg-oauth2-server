@@ -34,7 +34,7 @@ $ npm i egg-oauth2-server --save
 
 ```js
 // {app_root}/config/plugin.js
-exports['oauth2-server'] = {
+exports.oauth2Server = {
   enable: true,
   package: 'egg-oauth2-server',
 };
@@ -48,17 +48,12 @@ app.get('/user/check', app.oauth.authorise(), 'user.check');
 
 ```js
 // {app_root}/config/config.default.js
-const oauth_model = require('../app/extend/oauth'); // Implementation of oauth2
-
-module.exports = app => {
+module.exports = config => {
   const exports = {};
-
-  exports['oauth2-server'] = {
-    debug: process.env.NODE_ENV !== 'production',
+  exports.oauth2Server = {
+    debug: config.env === 'local',
     grants: [ 'password' ],
-    model: oauth_model(app),
   };
-
   return exports;
 };
 ```
@@ -75,7 +70,7 @@ A simple implementation of password mode OAuth 2.0 server, see [test/fixtures/ap
 // {app_root}/app/extend/oauth.js
 'use strict';
 
-module.exports = app => {
+module.exports = () => {
   const model = {};
   model.getClient = (clientId, clientSecret, callback) => {};
   model.grantTypeAllowed = (clientId, grantType, callback) => {};
