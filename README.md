@@ -23,6 +23,7 @@
 <!--
 Description here.
 -->
+[Chinese Example | 中文样例教程](https://cnodejs.org/topic/592b2aedba8670562a40f60b)
 
 ## Install
 
