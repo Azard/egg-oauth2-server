@@ -71,7 +71,7 @@ A simple implementation of password mode OAuth 2.0 server, see [test/fixtures/ap
 // {app_root}/app/extend/oauth.js
 'use strict';
 
-module.exports = () => {
+module.exports = app => {
   const model = {};
   model.getClient = (clientId, clientSecret, callback) => {};
   model.grantTypeAllowed = (clientId, grantType, callback) => {};
