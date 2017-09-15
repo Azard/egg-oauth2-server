@@ -35,14 +35,14 @@ $ npm i egg-oauth2-server --save
 
 ```js
 // {app_root}/config/plugin.js
-exports.oauth2Server = {
+exports.oAuth2Server = {
   enable: true,
   package: 'egg-oauth2-server',
 };
 
 // {app_root}/app/router.js
-app.all('/user/grant', app.oauth.grant());
-app.get('/user/check', app.oauth.authorise(), 'user.check');
+app.all('/user/token', app.oAuth2Server.token());
+app.get('/user/check', app.oAuth2Server.authenticate(), 'user.check');
 ```
 
 ## Configuration
@@ -51,7 +51,7 @@ app.get('/user/check', app.oauth.authorise(), 'user.check');
 // {app_root}/config/config.default.js
 module.exports = config => {
   const exports = {};
-  exports.oauth2Server = {
+  exports.oAuth2Server = {
     debug: config.env === 'local',
     grants: [ 'password' ],
   };
@@ -71,24 +71,27 @@ A simple implementation of password mode OAuth 2.0 server, see [test/fixtures/ap
 // {app_root}/app/extend/oauth.js
 'use strict';
 
-module.exports = app => {
-  const model = {};
-  model.getClient = (clientId, clientSecret, callback) => {};
-  model.grantTypeAllowed = (clientId, grantType, callback) => {};
-  model.getUser = (username, password, callback) => {}; // only for password mode
-  model.saveAccessToken = (accessToken, clientId, expires, user, callback) => {};
-  model.getAccessToken = (bearerToken, callback) => {};
-  return model;
+module.exports = app => {  
+  class Model {
+    constructor(ctx) {}
+    async getClient(clientId, clientSecret) {}
+    async getUser(jobnumber, password) {}
+    async getAccessToken(bearerToken) {}
+    async saveToken(token, client, user) {}
+    async getAuthorizationCode(authorizationCode) {}
+    async saveAuthorizationCode(code, client, user) {}
+  }  
+  return Model;
 };
 ```
 
 Full description see [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
 
-### password mode `app.oauth.grant()` lifecycle
+### password mode `app.oauth.token()` lifecycle
 
-`getClient` --> `grantTypeAllowed` --> `getUser` --> `saveAccessToken`
+`getClient` --> `getUser` --> `saveToken`
 
-### password mode `app.oauth.authorise()` lifecycle
+### password mode `app.oauth.authenticate()` lifecycle
 
 Only `getAccessToken`
 
