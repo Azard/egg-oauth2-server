@@ -20,8 +20,8 @@
   "devDependencies": {
     "autod": "^2.8.0",
     "chai": "^3.5.0",
-    "egg": "^1.3.0",
     "nconf": "^0.8.4",
+    "egg": "^1.3.0",    
     "egg-bin": "^3.4.0",
     "egg-ci": "^1.6.0",
     "egg-mock": "^3.7.0",
