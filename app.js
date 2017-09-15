@@ -1,18 +1,21 @@
 'use strict';
 
 const path = require('path');
-const oauth2server = require('koa-oauth-server');
+const OAuth2Server = require('./lib/server');
 
 module.exports = app => {
   app.coreLogger.info('[egg-oauth2-server] egg-oauth2-server begin start');
   const start = Date.now();
-  app.config.oauth2Server.model = app.loader.loadFile(path.join(app.config.baseDir, 'app/extend/oauth.js'));
-  if (app.config.oauth2Server.model === null) {
+
+  const config = app.config.oAuth2Server;
+  const model = app.loader.loadFile(path.join(app.config.baseDir, 'app/extend/oauth.js'));
+
+  if (model === null) {
     app.coreLogger.error('[egg-oauth2-server] not find app/extend/oauth.js, egg-oauth2-server start fail');
     return;
   }
   try {
-    app.oauth = oauth2server(app.config.oauth2Server);
+    app.oAuth2Server = new OAuth2Server(config, model);
   } catch (e) {
     app.coreLogger.error('[egg-oauth2-server] start fail, %s', e);
     return;
