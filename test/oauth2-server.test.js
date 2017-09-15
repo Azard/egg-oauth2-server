@@ -23,27 +23,27 @@ describe('test/oauth2-server.test.js', () => {
       .expect(200);
   });
 
-  it('GET /user/grant', () => {
+  it('GET /user/token', () => {
     return request(app.callback())
-      .get('/user/grant')
+      .get('/user/token')
       .expect(400)
       .then(({ body }) => {
         expect(body.error).to.equal('invalid_request');
       });
   });
 
-  it('no header POST /user/grant', () => {
+  it('no header POST /user/token', () => {
     return request(app.callback())
-      .post('/user/grant')
+      .post('/user/token')
       .expect(400)
       .then(({ body }) => {
         expect(body.error).to.equal('invalid_request');
       });
   });
 
-  it('incorrect Authorization POST /user/grant', () => {
+  it('incorrect Authorization POST /user/token', () => {
     return request(app.callback())
-      .post('/user/grant')
+      .post('/user/token')
       .set({
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: 'Basic ZWdnL',
@@ -59,21 +59,21 @@ describe('test/oauth2-server.test.js', () => {
       });
   });
 
-  it('correct POST /user/grant', () => {
+  it('correct POST /user/token', () => {
     return request(app.callback())
-      .post('/user/grant')
+      .post('/user/token')
       .set({
         'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: 'Basic ZWdnLW9hdXRoMi1zZXJ2ZXItdGVzdDpBemFyZA==', // Basic base64(clientId:clientSecret)
+        Authorization: 'Basic bXlfYXBwOm15X3NlY3JldA==', // Basic base64(my_app:my_secret)
       })
       .send({
-        grant_type: 'password',
         username: 'egg-oauth2-server',
         password: 'azard',
+        grant_type: 'password',
       })
       .expect(200)
       .then(({ body }) => {
-        expect(body.token_type).to.equal('bearer');
+        expect(body.token_type).to.equal('Bearer');
         expect(body.access_token.length).to.equal(40);
       });
   });
@@ -82,9 +82,7 @@ describe('test/oauth2-server.test.js', () => {
     return request(app.callback())
       .get('/user/check')
       .expect(401)
-      .then(({ body }) => {
-        expect(body.error).to.equal('invalid_token');
-      });
+      .expect('Unauthorized');
   });
 
   it('correct GET /user/check', () => {

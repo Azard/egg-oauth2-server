@@ -1,57 +1,52 @@
 'use strict';
 
-module.exports = () => {
-  const model = {};
-  const user = {
-    username: 'egg-oauth2-server',
-    password: 'azard',
-  };
+const path = require('path');
+const nconf = require('nconf');
 
-  model.getClient = (clientId, clientSecret, callback) => {
-    if (clientId === 'egg-oauth2-server-test' && clientSecret === 'Azard') {
-      callback(null, {
-        clientId,
-      });
-    } else {
-      callback(null, null);
+module.exports = app => {
+
+  // Mock Data
+  nconf.use('file', {
+    file: path.join(app.config.baseDir, 'app/mock/db.json'),
+  });
+
+  class Model {
+    constructor(ctx) {
+      this.ctx = ctx;
     }
-  };
 
-  model.grantTypeAllowed = (clientId, grantType, callback) => {
-    if (grantType === 'password' && clientId === 'egg-oauth2-server-test') {
-      callback(null, true);
-    } else {
-      callback(null, false);
+    async getClient(clientId, clientSecret) {
+      const client = nconf.get('client');
+      if (clientId !== client.clientId || clientSecret !== client.clientSecret) {
+        return;
+      }
+      return client;
     }
-  };
 
-  // only for password mode
-  model.getUser = (username, password, callback) => {
-    if (username === user.username && password === user.password) {
-      callback(null, {
-        id: 123,
-      });
-    } else {
-      callback(null, null);
+    async getUser(username, password) {
+      const user = nconf.get('user');
+      if (username !== user.username || password !== user.password) {
+        return;
+      }
+      return { userId: user.id };
     }
-  };
 
-  model.saveAccessToken = (accessToken, clientId, expires, user, callback) => {
-    callback(null);
-  };
-
-  model.getAccessToken = (bearerToken, callback) => {
-    if (!bearerToken || bearerToken.length !== 40) {
-      callback(null, false);
-    } else {
-      callback(null, {
-        expires: null,
-        user: {
-          id: 123,
-        },
-      });
+    async getAccessToken(bearerToken) {      
+      const token = nconf.get('token');
+      const user = nconf.get('user');
+      const client = nconf.get('client');
+      token.user = user;
+      token.client = client;
+      return token;
     }
-  };
 
-  return model;
+    async saveToken(token, client, user) {      
+      const _token = Object.assign({}, token, { user }, { client });      
+      nconf.set('token', _token);
+      nconf.save();      
+      return _token;
+    }
+  }
+
+  return Model;
 };

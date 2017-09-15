@@ -4,7 +4,6 @@ module.exports = app => {
   app.get('/', function* () {
     this.body = 'hi';
   });
-
-  app.all('/user/grant', app.oauth.grant());
-  app.get('/user/check', app.oauth.authorise(), 'user.check');
+  app.all('/user/token', app.oAuth2Server.token());
+  app.get('/user/check', app.oAuth2Server.authenticate(), 'user.check');
 };
