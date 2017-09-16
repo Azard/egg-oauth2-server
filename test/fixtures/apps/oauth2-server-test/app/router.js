@@ -5,5 +5,5 @@ module.exports = app => {
     this.body = 'hi';
   });
   app.all('/user/token', app.oAuth2Server.token());
-  app.get('/user/check', app.oAuth2Server.authenticate(), 'user.check');
+  app.get('/user/authenticate', app.oAuth2Server.authenticate(), 'user.authenticate');
 };
