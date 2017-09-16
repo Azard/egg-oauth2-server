@@ -6,7 +6,7 @@ module.exports = config => {
   /**
    * @see https://www.npmjs.com/package/oauth2-server
    */
-  exports.oauth2Server = {
+  exports.oAuth2Server = {
     debug: config.env === 'local',
     grants: [ 'password' ],
   };

@@ -1,9 +1,9 @@
 {
   "name": "egg-oauth2-server",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "koa-oauth-server(node-oauth2-server) plugin for egg",
   "eggPlugin": {
-    "name": "oauth2Server"
+    "name": "oAuth2Server"
   },
   "keywords": [
     "egg",
@@ -14,13 +14,14 @@
     "oauth2",
     "oauth2-server"
   ],
-  "dependencies": {
-    "koa-oauth-server": "^1.0.1"
+  "dependencies": {    
+    "oauth2-server": "^3.0.0"
   },
   "devDependencies": {
     "autod": "^2.8.0",
     "chai": "^3.5.0",
-    "egg": "^1.3.0",
+    "nconf": "^0.8.4",
+    "egg": "^1.3.0",    
     "egg-bin": "^3.4.0",
     "egg-ci": "^1.6.0",
     "egg-mock": "^3.7.0",

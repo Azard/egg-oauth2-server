@@ -4,7 +4,7 @@ module.exports = config => {
   const exports = {};
 
   exports.keys = '123456';
-  exports.oauth2Server = {
+  exports.oAuth2Server = {
     debug: config.env === 'local',
     grants: [ 'password' ],
   };
