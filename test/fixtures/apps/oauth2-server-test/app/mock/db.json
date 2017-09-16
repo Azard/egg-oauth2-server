@@ -18,10 +18,10 @@
     "password": "azard"
   },
   "token": {
-    "accessToken": "5380ea73cd93d8a627017ecb530fa36fd82ca4f4",
-    "accessTokenExpiresAt": "2017-09-16T19:09:20.133Z",
-    "refreshToken": "4d97a119525df8f04bb7f2202625af2fbb9ccd8a",
-    "refreshTokenExpiresAt": "2017-09-30T18:09:20.133Z",
+    "accessToken": "6f5cc3e0ada126b3ce63aa5bb2fa9d3d99c3afd6",
+    "accessTokenExpiresAt": "2017-09-16T19:36:05.918Z",
+    "refreshToken": "701e69b7c671041d1a1d29dd3db765faecc7e732",
+    "refreshTokenExpiresAt": "2017-09-30T18:36:05.918Z",
     "user": {
       "userId": 1
     },
