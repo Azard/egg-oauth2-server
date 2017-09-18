@@ -25,11 +25,14 @@ Description here.
 -->
 [Chinese Example | 中文样例教程](https://cnodejs.org/topic/592b2aedba8670562a40f60b)
 
-## Install
+`egg-oauth2-server` is a module that easily adds oauth2 capability to [egg-based servers](https://github.com/eggjs/egg).
 
+## Install
+* NPMJS
 ```bash
 $ npm i egg-oauth2-server --save
 ```
+* `cnpm` with taobao registry also work
 
 ## Usage
 
@@ -61,11 +64,11 @@ module.exports = config => {
 
 See [test/fixtures/apps/oauth2-server-test/config/config.unittest.js](test/fixtures/apps/oauth2-server-test/config/config.unittest.js) for reference.
 
-Full description see [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
+For full description, check out [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
 
-## Implementation Example
+## Examples
 
-A simple implementation of password mode OAuth 2.0 server, see [test/fixtures/apps/oauth2-server-test/app/extend/oauth.js](test/fixtures/apps/oauth2-server-test/app/extend/oauth.js)
+A simple password-mode OAuth 2.0 server. Full code at [test/fixtures/apps/oauth2-server-test/app/extend/oauth.js](test/fixtures/apps/oauth2-server-test/app/extend/oauth.js)
 
 ```js
 // {app_root}/app/extend/oauth.js
@@ -85,19 +88,19 @@ module.exports = app => {
 };
 ```
 
-Full description see [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
+Full description at [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
 
-### password mode `app.oauth.token()` lifecycle
+* password-mode `app.oauth.token()` lifecycle
 
 `getClient` --> `getUser` --> `saveToken`
 
-### password mode `app.oauth.authenticate()` lifecycle
+* password-mode `app.oauth.authenticate()` lifecycle
 
 Only `getAccessToken`
 
 ## Questions & Suggestions
 
-Please open an issue [here](https://github.com/Azard/egg-oauth2-server/issues).
+Please [open an issue](https://github.com/Azard/egg-oauth2-server/issues). PRs are welcomed too.
 
 ## License
 
