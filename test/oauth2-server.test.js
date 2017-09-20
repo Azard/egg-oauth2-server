@@ -78,16 +78,16 @@ describe('test/oauth2-server.test.js', () => {
       });
   });
 
-  it('incorrect GET /user/check', () => {
+  it('incorrect GET /user/authenticate', () => {
     return request(app.callback())
-      .get('/user/check')
+      .get('/user/authenticate')
       .expect(401)
       .expect('Unauthorized');
   });
 
-  it('correct GET /user/check', () => {
+  it('correct GET /user/authenticate', () => {
     return request(app.callback())
-      .get('/user/check')
+      .get('/user/authenticate')
       .set({
         Authorization: 'Bearer 838734b4115734de1f87f02a9da9106ddec7cc30',
       })

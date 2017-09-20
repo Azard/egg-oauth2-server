@@ -5,7 +5,7 @@ module.exports = app => {
     * index() {
       this.ctx.body = 'index';
     }
-    * check() {
+    * authenticate() {
       this.ctx.body = 'ok';
     }
   }

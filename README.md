@@ -42,7 +42,8 @@ exports.oAuth2Server = {
 
 // {app_root}/app/router.js
 app.all('/user/token', app.oAuth2Server.token());
-app.get('/user/check', app.oAuth2Server.authenticate(), 'user.check');
+app.get('/user/authorize', app.oAuth2Server.authorize(), 'user.code');
+app.get('/user/authenticate', app.oAuth2Server.authenticate(), 'user.authenticate');
 ```
 
 ## Configuration
@@ -78,8 +79,10 @@ module.exports = app => {
     async getUser(jobnumber, password) {}
     async getAccessToken(bearerToken) {}
     async saveToken(token, client, user) {}
+    async revokeToken(token) {}
     async getAuthorizationCode(authorizationCode) {}
     async saveAuthorizationCode(code, client, user) {}
+    async revokeAuthorizationCode(code) {}
   }  
   return Model;
 };
@@ -92,6 +95,18 @@ Full description see [https://www.npmjs.com/package/oauth2-server](https://www.n
 `getClient` --> `getUser` --> `saveToken`
 
 ### password mode `app.oauth.authenticate()` lifecycle
+
+Only `getAccessToken`
+
+### authorization_code mode `app.oauth.authorize()` lifecycle
+
+`getClient` --> `getUser` --> `saveAuthorizationCode`
+
+### authorization_code mode `app.oauth.token()` lifecycle
+
+`getClient` --> `getAuthorizationCode` --> `saveToken` --> `revokeAuthorizationCode`
+
+### authorization_code mode `app.oauth.authenticate()` lifecycle
 
 Only `getAccessToken`
 
