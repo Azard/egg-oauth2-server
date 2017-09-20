@@ -93,11 +93,11 @@ module.exports = app => {
 
 Full description at [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
 
-* password-mode `app.oauth.token()` lifecycle
+### password-mode `app.oauth.token()` lifecycle
 
 `getClient` --> `getUser` --> `saveToken`
 
-* password-mode `app.oauth.authenticate()` lifecycle
+### password-mode `app.oauth.authenticate()` lifecycle
 
 Only `getAccessToken`
 
