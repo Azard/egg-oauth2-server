@@ -28,11 +28,9 @@ Description here.
 `egg-oauth2-server` is a module that easily adds oauth2 capability to [egg-based servers](https://github.com/eggjs/egg).
 
 ## Install
-* NPMJS
 ```bash
 $ npm i egg-oauth2-server --save
 ```
-* `cnpm` with taobao registry also work
 
 ## Usage
 
@@ -49,8 +47,6 @@ app.get('/user/authorize', app.oAuth2Server.authorize(), 'user.code');
 app.get('/user/authenticate', app.oAuth2Server.authenticate(), 'user.authenticate');
 ```
 
-## Configuration
-
 ```js
 // {app_root}/config/config.default.js
 module.exports = config => {
@@ -65,16 +61,11 @@ module.exports = config => {
 
 See [test/fixtures/apps/oauth2-server-test/config/config.unittest.js](test/fixtures/apps/oauth2-server-test/config/config.unittest.js) for reference.
 
-For full description, check out [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
-
-## Examples
-
-A simple password-mode OAuth 2.0 server. Full code at [test/fixtures/apps/oauth2-server-test/app/extend/oauth.js](test/fixtures/apps/oauth2-server-test/app/extend/oauth.js)
-
 ```js
 // {app_root}/app/extend/oauth.js
 'use strict';
 
+// need implement some follow functions
 module.exports = app => {  
   class Model {
     constructor(ctx) {}
@@ -91,13 +82,17 @@ module.exports = app => {
 };
 ```
 
-Full description at [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
+For full description, check out [https://www.npmjs.com/package/oauth2-server](https://www.npmjs.com/package/oauth2-server).
 
-### password-mode `app.oauth.token()` lifecycle
+## Examples
+
+A simple password-mode OAuth 2.0 server. Full code at [test/fixtures/apps/oauth2-server-test/app/extend/oauth.js](test/fixtures/apps/oauth2-server-test/app/extend/oauth.js)
+
+### password mode `app.oauth.token()` lifecycle
 
 `getClient` --> `getUser` --> `saveToken`
 
-### password-mode `app.oauth.authenticate()` lifecycle
+### password mode `app.oauth.authenticate()` lifecycle
 
 Only `getAccessToken`
 

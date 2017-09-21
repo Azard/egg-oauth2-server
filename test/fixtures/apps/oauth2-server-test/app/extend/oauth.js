@@ -33,6 +33,8 @@ module.exports = app => {
 
     * getAccessToken(bearerToken) {
       const token = nconf.get('token');
+      token.accessTokenExpiresAt = new Date(token.accessTokenExpiresAt);
+      token.refreshTokenExpiresAt = new Date(token.refreshTokenExpiresAt);
       const user = nconf.get('user');
       const client = nconf.get('client');
       token.user = user;
