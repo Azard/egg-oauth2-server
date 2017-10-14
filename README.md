@@ -45,6 +45,8 @@ exports.oAuth2Server = {
 app.all('/user/token', app.oAuth2Server.token());
 app.get('/user/authorize', app.oAuth2Server.authorize(), 'user.code');
 app.get('/user/authenticate', app.oAuth2Server.authenticate(), 'user.authenticate');
+
+// `ctx.state.oauth` has token or code data after middleware for controller.
 ```
 
 ```js
