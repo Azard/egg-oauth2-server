@@ -6,7 +6,7 @@ module.exports = app => {
       this.ctx.body = 'index';
     }
     * authenticate() {
-      this.ctx.body = 'ok';
+      this.ctx.body = {result: 'ok'};
     }
   }
   return UserController;
