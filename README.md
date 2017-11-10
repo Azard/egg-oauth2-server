@@ -72,7 +72,7 @@ module.exports = app => {
   class Model {
     constructor(ctx) {}
     async getClient(clientId, clientSecret) {}
-    async getUser(jobnumber, password) {}
+    async getUser(username, password) {}
     async getAccessToken(bearerToken) {}
     async saveToken(token, client, user) {}
     async revokeToken(token) {}
