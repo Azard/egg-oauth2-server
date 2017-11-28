@@ -23,7 +23,7 @@
 <!--
 Description here.
 -->
-[Chinese Example | 中文样例教程](https://cnodejs.org/topic/592b2aedba8670562a40f60b)
+[Chinese Example | 中文样例教程](https://cnodejs.org/topic/592b2aedba8670562a40f60b)(注意：文章里使用的是该插件 v1.x 版本，部分 API 名称有变化，主要流程一致)
 
 `egg-oauth2-server` is a module that easily adds oauth2 capability to [egg-based servers](https://github.com/eggjs/egg).
 
