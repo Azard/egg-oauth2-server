@@ -15,7 +15,7 @@ module.exports = app => {
       this.ctx = ctx;
     }
 
-    * getClient(clientId, clientSecret) {
+    async getClient(clientId, clientSecret) {
       const client = nconf.get('client');
       if (clientId !== client.clientId || clientSecret !== client.clientSecret) {
         return;
@@ -23,7 +23,7 @@ module.exports = app => {
       return client;
     }
 
-    * getUser(username, password) {
+    async getUser(username, password) {
       const user = nconf.get('user');
       if (username !== user.username || password !== user.password) {
         return;
@@ -31,7 +31,7 @@ module.exports = app => {
       return { userId: user.id };
     }
 
-    * getAccessToken(bearerToken) {
+    async getAccessToken(bearerToken) {
       const token = nconf.get('token');
       token.accessTokenExpiresAt = new Date(token.accessTokenExpiresAt);
       token.refreshTokenExpiresAt = new Date(token.refreshTokenExpiresAt);
@@ -42,7 +42,7 @@ module.exports = app => {
       return token;
     }
 
-    * saveToken(token, client, user) {
+    async saveToken(token, client, user) {
       const _token = Object.assign({}, token, { user }, { client });
       nconf.set('token', _token);
       nconf.save();
