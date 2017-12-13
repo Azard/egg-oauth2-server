@@ -27,8 +27,8 @@ Description here.
 
 `egg-oauth2-server` is a module that easily adds oauth2 capability to [egg-based servers](https://github.com/eggjs/egg).
 
-* egg 2.x use egg-oauth2-server latest
-* egg 1.x use egg-oauth2-server 2.0.x
+* egg 2.x use egg-oauth2-server latest (Node >= 8.0.0)
+* egg 1.x use egg-oauth2-server 2.0.x (Node >= 6.0.0)
 
 ## Install
 ```bash
