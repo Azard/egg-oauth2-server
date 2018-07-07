@@ -68,6 +68,7 @@ See [test/fixtures/apps/oauth2-server-test/config/config.unittest.js](test/fixtu
 
 ```js
 // {app_root}/app/extend/oauth.js
+// or {app_root}/app/extend/oauth.ts
 'use strict';
 
 // need implement some follow functions
