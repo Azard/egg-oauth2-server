@@ -97,14 +97,14 @@ describe('test/oauth2-server.test.js', () => {
     before(() => {
       mm(app.config.oAuth2Server, 'handleError', false);
     });
-    
+
     it('should thows execption', () => {
-       return request(app.callback())
+      return request(app.callback())
         .get('/user/authenticate')
         .set({
           Authorization: 'Bearer 838734b4115734de1f87f02a9da9106ddec7cc31',
         })
         .expect(500);
-    })
+    });
   });
 });
