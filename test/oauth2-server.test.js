@@ -98,7 +98,7 @@ describe('test/oauth2-server.test.js', () => {
       mock(app.config.oAuth2Server, 'handleError', false);
     });
     
-    it('should thows execption, () => {
+    it('should thows execption', () => {
        return request(app.callback())
         .get('/user/authenticate')
         .set({
