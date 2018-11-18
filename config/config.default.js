@@ -9,6 +9,7 @@ module.exports = config => {
   exports.oAuth2Server = {
     debug: config.env === 'local',
     grants: [ 'password' ],
+    handleError: true,
   };
   return exports;
 };
