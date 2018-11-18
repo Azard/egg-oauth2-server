@@ -95,7 +95,7 @@ describe('test/oauth2-server.test.js', () => {
   });
   describe('Don\'t handleError', () => {
     before(() => {
-      mock(app.config.oAuth2Server, 'handleError', false);
+      mm(app.config.oAuth2Server, 'handleError', false);
     });
     
     it('should thows execption', () => {
