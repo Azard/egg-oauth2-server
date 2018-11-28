@@ -4,7 +4,7 @@ const request = require('supertest');
 const mm = require('egg-mock');
 const expect = require('chai').expect;
 
-describe('test/oauth2-server.test.js', () => {
+describe('test/oauth2-server.test.js run oauth2-server-test', () => {
   let app;
   before(() => {
     app = mm.app({
@@ -92,5 +92,24 @@ describe('test/oauth2-server.test.js', () => {
         Authorization: 'Bearer 838734b4115734de1f87f02a9da9106ddec7cc30',
       })
       .expect(200);
+  });
+});
+
+describe('test/oauth2-server.test.js run oauth2-server-error-handler', () => {
+  let app;
+  before(() => {
+    app = mm.app({
+      baseDir: 'apps/oauth2-server-error-handler',
+    });
+    return app.ready();
+  });
+
+  after(() => app.close());
+  afterEach(mm.restore);
+
+  it('should GET 500', () => {
+    return request(app.callback())
+      .get('/user/token')
+      .expect(500);
   });
 });
