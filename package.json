@@ -1,6 +1,6 @@
 {
   "name": "egg-oauth2-server",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "koa-oauth-server(node-oauth2-server) plugin for egg",
   "eggPlugin": {
     "name": "oAuth2Server"
