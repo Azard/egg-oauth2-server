@@ -13,7 +13,7 @@ declare module 'egg' {
 
 type Model = AuthorizationCodeModel | ClientCredentialsModel | RefreshTokenModel | PasswordModel | ExtensionModel;
 type ExecuteOptions = AuthenticateOptions | AuthorizeOptions | TokenOptions;
-class OAuth2 {
+declare class OAuth2 {
   constructor(config: ServerOptions, model: Model);
   private config: ServerOptions;
   private model: Model;
