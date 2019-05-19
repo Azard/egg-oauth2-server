@@ -45,6 +45,7 @@
     "index.js",
     "app.js",
     "agent.js",
+    "index.d.ts",
     "config",
     "app",
     "lib"
