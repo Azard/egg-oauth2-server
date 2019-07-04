@@ -11,8 +11,9 @@ module.exports = app => {
   });
 
   class Model {
-    constructor(ctx) {
+    constructor(ctx, x) {
       this.ctx = ctx;
+      this.x = x;
     }
 
     async getClient(clientId, clientSecret) {
