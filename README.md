@@ -108,7 +108,7 @@ Only `getAccessToken`
 
 ### authorization_code mode `app.oauth.token()` lifecycle
 
-`getClient` --> `getAuthorizationCode` --> `saveToken` --> `revokeAuthorizationCode`
+`getClient` --> `getAuthorizationCode` --> `revokeAuthorizationCode` --> `saveToken`
 
 ### authorization_code mode `app.oauth.authenticate()` lifecycle
 
