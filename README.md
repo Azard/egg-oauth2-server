@@ -77,12 +77,12 @@ module.exports = app => {
     constructor(ctx) {}
     async getClient(clientId, clientSecret) {}
     async getUser(username, password) {}
-    async getAccessToken(bearerToken) {}
-    async saveToken(token, client, user) {}
-    async revokeToken(token) {}
-    async getAuthorizationCode(authorizationCode) {}
     async saveAuthorizationCode(code, client, user) {}
+    async getAuthorizationCode(authorizationCode) {}
     async revokeAuthorizationCode(code) {}
+    async saveToken(token, client, user) {}
+    async getAccessToken(bearerToken) {}
+    async revokeToken(token) {}
   }  
   return Model;
 };
@@ -108,7 +108,7 @@ Only `getAccessToken`
 
 ### authorization_code mode `app.oauth.token()` lifecycle
 
-`getClient` --> `getAuthorizationCode` --> `saveToken` --> `revokeAuthorizationCode`
+`getClient` --> `getAuthorizationCode` --> `revokeAuthorizationCode` --> `saveToken`
 
 ### authorization_code mode `app.oauth.authenticate()` lifecycle
 
